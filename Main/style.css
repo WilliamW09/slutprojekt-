@@ -10,8 +10,6 @@ body {
     color: white;
 }
 
-/* NAVBAR */
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -116,8 +114,6 @@ body {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* MOBILMENY */
-
 .mobile-menu {
     display: none;
     flex-direction: column;
@@ -152,8 +148,6 @@ body {
     color: #4da3ff !important;
     font-weight: 500 !important;
 }
-
-/* HERO */
 
 .hero {
     padding: 120px 60px;
@@ -218,8 +212,6 @@ body {
 .secondary-btn:hover {
     border-color: #99aabb;
 }
-
-/* FEATURED */
 
 .featured {
     padding: 70px 60px;
@@ -326,8 +318,6 @@ body {
     color: #0f1923;
 }
 
-/* MODAL */
-
 .modal-overlay {
     display: none;
     position: fixed;
@@ -392,8 +382,6 @@ body {
     font-weight: 300;
 }
 
-/* FOOTER */
-
 footer {
     padding: 40px 60px;
     background-color: #152030;
@@ -411,8 +399,6 @@ footer {
     color: #5a7a99;
     font-size: 14px;
 }
-
-/* PAGE HERO (undersidor) */
 
 .page-hero {
     padding: 80px 60px 60px;
@@ -432,8 +418,6 @@ footer {
     color: #99aabb;
     font-weight: 300;
 }
-
-/* FORMULÄR */
 
 .form-section {
     padding: 60px 24px;
@@ -514,8 +498,6 @@ footer {
     font-weight: 500;
 }
 
-/* LOGIN-FLIKAR */
-
 .login-tabs {
     display: flex;
     margin-bottom: 28px;
@@ -545,8 +527,6 @@ footer {
 .tab-btn:hover {
     color: #99aabb;
 }
-
-/* ABOUT */
 
 .about-section {
     max-width: 700px;
@@ -595,8 +575,6 @@ footer {
     margin-top: 2px;
 }
 
-/* SÖKAUTOCOMPLETIONS */
-
 .search-wrapper {
     position: relative;
     width: 340px;
@@ -642,8 +620,6 @@ footer {
     object-fit: cover;
     border-radius: 3px;
 }
-
-/* RESPONSIV */
 
 @media screen and (max-width: 768px) {
     .nav-links { display: none; }

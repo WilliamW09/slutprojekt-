@@ -1,9 +1,11 @@
+// Databas (array) med flygplan som används för autocompletion i sökfältet
 var aircraftData = [
-    { name: "Gulfstream G700", image: "images/jet1.jpg" },
-    { name: "Dassault Falcon 8X", image: "images/jet2.jpg" },
-    { name: "Cessna Citation X", image: "images/jet3.jpg" }
+    { name: "Bombardier Global 7500", image: "../image/pexels-deetalks-26618086.jpg" },
+    { name: "Pilatus PC-24", image: "../image/pexels-planespotter-geneva-1877406873-32334134.jpg" },
+    { name: "Embraer Praetor 600", image: "../image/pexels-viliamphotography-32676348.jpg" }
 ];
 
+// Uppdaterar navigationsmenyn om det finns en inloggad användare sparad i webbläsaren
 function updateLoginNav() {
     var username = localStorage.getItem("loggedInUser");
     var loginNavBtn = document.getElementById("loginNavBtn");
@@ -23,6 +25,7 @@ function updateLoginNav() {
 
 updateLoginNav();
 
+// Öppnar och stänger mobilmenyn (hamburger-menyn)
 function toggleMenu() {
     var menu = document.getElementById("mobileMenu");
     var hamburger = document.getElementById("hamburger");
@@ -36,14 +39,17 @@ function toggleMenu() {
     }
 }
 
+// Hanterar både filtrering av flygplanskort och autocomplete-listan
 function searchAircraft() {
     var input = document.getElementById("searchBar").value.toLowerCase();
     var cards = document.querySelectorAll(".aircraft-card");
     var autocompleteList = document.getElementById("autocompleteList");
     var visibleCount = 0;
 
+    // 1. Filtrera de befintliga flygplanskorten på sidan
     for (var i = 0; i < cards.length; i++) {
-        var name = cards[i].getAttribute("data-name");
+        var name = cards[i].getAttribute("data-name").toLowerCase(); 
+        
         if (name.includes(input)) {
             cards[i].style.display = "block";
             visibleCount++;
@@ -53,10 +59,12 @@ function searchAircraft() {
     }
 
     var noResults = document.getElementById("noResults");
-    if (visibleCount === 0) {
-        noResults.style.display = "block";
-    } else {
-        noResults.style.display = "none";
+    if (noResults) { 
+        if (visibleCount === 0) {
+            noResults.style.display = "block";
+        } else {
+            noResults.style.display = "none";
+        }
     }
 
     autocompleteList.innerHTML = "";
@@ -66,6 +74,7 @@ function searchAircraft() {
         return;
     }
 
+    // 2. Hitta matchningar i vår aircraftData-array för autocomplete
     var matches = [];
     for (var j = 0; j < aircraftData.length; j++) {
         if (aircraftData[j].name.toLowerCase().includes(input)) {
@@ -102,6 +111,7 @@ function searchAircraft() {
     }
 }
 
+// Stänger autocomplete-listan om användaren klickar utanför sökfältet
 document.addEventListener("click", function(e) {
     var wrapper = document.querySelector(".search-wrapper");
     var list = document.getElementById("autocompleteList");
@@ -110,6 +120,7 @@ document.addEventListener("click", function(e) {
     }
 });
 
+// Öppnar modal-fönstret (popupen) med dynamisk info
 function openModal(name, price, specs, description) {
     document.getElementById("modalName").textContent = name;
     document.getElementById("modalPrice").textContent = price;
@@ -128,6 +139,7 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
+// Växlar mellan flikarna för "Registrera" och "Logga in"
 function switchTab(tab) {
     var registerForm = document.getElementById("registerForm");
     var loginForm = document.getElementById("loginForm");
