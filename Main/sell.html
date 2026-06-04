@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Aircraft – AeroTrade</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">AeroTrade</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="sell.html" class="active">Sell Aircraft</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="login.html" class="login-btn" id="loginNavBtn">Log in</a>
+                <a href="contact.html" class="nav-button">Contact</a>
+            </div>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="marketplace.html" onclick="toggleMenu()">Marketplace</a>
+            <a href="sell.html" onclick="toggleMenu()">Sell Aircraft</a>
+            <a href="about.html" onclick="toggleMenu()">About</a>
+            <a href="contact.html" onclick="toggleMenu()">Contact</a>
+            <a href="login.html" class="mobile-login" id="mobileLoginBtn" onclick="toggleMenu()">Log in</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <h1>Sell Your Aircraft</h1>
+        <p>List your aircraft with Swedens leading aviation marketplace.</p>
+    </section>
+
+    <section class="form-section">
+        <div class="form-card">
+            <h2>Create a Listing</h2>
+            <p class="form-sub">Fill in the details below and your aircraft will be listed for sale.</p>
+
+            <div class="form-group">
+                <label>Aircraft Make & Model</label>
+                <input type="text" id="sellModel" placeholder="e.g. Cessna 152">
+                <p class="field-error" id="sellModelError"></p>
+            </div>
+            <div class="form-group">
+                <label>Year of Manufacture</label>
+                <input type="number" id="sellYear" placeholder="e.g. 1983">
+                <p class="field-error" id="sellYearError"></p>
+            </div>
+            <div class="form-group">
+                <label>Asking Price (USD)</label>
+                <input type="number" id="sellPrice" placeholder="e.g. 78000">
+                <p class="field-error" id="sellPriceError"></p>
+            </div>
+            <div class="form-group">
+                <label>Your Email</label>
+                <input type="text" id="sellEmail" placeholder="you@example.com">
+                <p class="field-error" id="sellEmailError"></p>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="sellDesc" placeholder="Describe the aircraft condition, features, history..."></textarea>
+            </div>
+
+            <button class="primary-btn" style="width: 100%; padding: 14px;" onclick="submitListing()">Submit Listing</button>
+            <p class="success-msg" id="sellSuccess"></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3>AeroTrade</h3>
+            <p>Premium Swedish aircraft marketplace.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

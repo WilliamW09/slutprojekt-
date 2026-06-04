@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in – AeroTrade</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">AeroTrade</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="sell.html">Sell Aircraft</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="login.html" class="login-btn" id="loginNavBtn">Log in</a>
+                <a href="contact.html" class="nav-button">Contact</a>
+            </div>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="marketplace.html" onclick="toggleMenu()">Marketplace</a>
+            <a href="sell.html" onclick="toggleMenu()">Sell Aircraft</a>
+            <a href="about.html" onclick="toggleMenu()">About</a>
+            <a href="contact.html" onclick="toggleMenu()">Contact</a>
+            <a href="login.html" class="mobile-login" id="mobileLoginBtn" onclick="toggleMenu()">Log in</a>
+        </div>
+    </header>
+
+    <section class="form-section">
+        <div class="form-card login-card">
+
+            <div class="login-tabs">
+                <button class="tab-btn active" id="tabRegister" onclick="switchTab('register')">Create Account</button>
+                <button class="tab-btn" id="tabLogin" onclick="switchTab('login')">Log In</button>
+            </div>
+
+            <div id="registerForm">
+                <h2>Create your account</h2>
+                <p class="form-sub">Join AeroTrade to buy and sell aircraft.</p>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" id="regEmail" placeholder="you@example.com">
+                    <p class="field-error" id="regEmailError"></p>
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="regUsername" placeholder="Choose a username">
+                    <p class="field-error" id="regUsernameError"></p>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="regPassword" placeholder="Choose a password">
+                    <p class="field-error" id="regPasswordError"></p>
+                </div>
+
+                <button class="primary-btn" style="width: 100%; padding: 14px; margin-top: 8px;" onclick="register()">Create Account</button>
+                <p class="success-msg" id="regSuccess"></p>
+            </div>
+
+            <div id="loginForm" style="display: none;">
+                <h2>Welcome back</h2>
+                <p class="form-sub">Log in to your AeroTrade account.</p>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" id="loginEmail" placeholder="you@example.com">
+                    <p class="field-error" id="loginEmailError"></p>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="Your password">
+                    <p class="field-error" id="loginPasswordError"></p>
+                </div>
+
+                <button class="primary-btn" style="width: 100%; padding: 14px; margin-top: 8px;" onclick="login()">Log In</button>
+                <p class="success-msg" id="loginSuccess"></p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3>AeroTrade</h3>
+            <p>Premium Swedish aircraft marketplace.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
