@@ -83,6 +83,45 @@ body {
     color: #0f1923;
 }
 
+.nav-right {
+    position: relative;
+}
+
+.user-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #152030;
+    border: 1px solid #1e3048;
+    border-radius: 6px;
+    margin-top: 8px;
+    z-index: 500;
+    min-width: 150px;
+}
+
+.user-menu.open {
+    display: block;
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    text-align: left;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #1e3048;
+    color: #ff8888;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -329,16 +368,59 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 999;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.modal-overlay.open {
+    display: flex;
+    opacity: 1;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 .modal {
     background-color: #152030;
     border: 1px solid #1e3048;
     border-radius: 12px;
-    padding: 36px;
+    padding: 24px 24px 28px;
     width: 90%;
-    max-width: 480px;
+    max-width: 520px;
     position: relative;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.modal-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 18px;
+}
+
+.modal-seller,
+.modal-location {
+    color: #9bb6d8;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.modal-location {
+    color: #7fc3ff;
+}
+
+.modal-desc {
+    margin-top: 14px;
+    line-height: 1.7;
+}
+
+.modal-overlay.open .modal {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .modal-close {
@@ -393,6 +475,12 @@ footer {
     font-weight: 700;
     color: #4da3ff;
     margin-bottom: 6px;
+}
+
+.footer-content .copyright {
+    margin-top: 10px;
+    color: #5a7a99;
+    font-size: 13px;
 }
 
 .footer-content p {

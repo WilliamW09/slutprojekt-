@@ -1,8 +1,8 @@
 // Databas (array) med flygplan som används för autocompletion i sökfältet
 var aircraftData = [
-    { name: "Bombardier Global 7500", image: "../image/pexels-deetalks-26618086.jpg" },
-    { name: "Pilatus PC-24", image: "../image/pexels-planespotter-geneva-1877406873-32334134.jpg" },
-    { name: "Embraer Praetor 600", image: "../image/pexels-viliamphotography-32676348.jpg" }
+    { name: "Beechcraft King Air", image: "../image/pexels-deetalks-26618086.jpg" },
+    { name: "Piper J-3 Cub", image: "../image/pexels-planespotter-geneva-1877406873-32334134.jpg" },
+    { name: "Cessna 152", image: "../image/pexels-viliamphotography-32676348.jpg" }
 ];
 
 // Uppdaterar navigationsmenyn om det finns en inloggad användare sparad i webbläsaren
@@ -15,15 +15,60 @@ function updateLoginNav() {
         if (loginNavBtn) {
             loginNavBtn.textContent = "Hi, " + username;
             loginNavBtn.href = "#";
+            loginNavBtn.onclick = function(e) {
+                e.preventDefault();
+                toggleUserMenu();
+            };
         }
         if (mobileLoginBtn) {
             mobileLoginBtn.textContent = "Hi, " + username;
             mobileLoginBtn.href = "#";
+            mobileLoginBtn.onclick = function(e) {
+                e.preventDefault();
+                toggleUserMenu();
+            };
         }
     }
 }
 
+function toggleUserMenu() {
+    var userMenu = document.getElementById("userMenu");
+    if (!userMenu) return;
+    
+    if (userMenu.classList.contains("open")) {
+        userMenu.classList.remove("open");
+    } else {
+        userMenu.classList.add("open");
+    }
+}
+
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    var userMenu = document.getElementById("userMenu");
+    if (userMenu) {
+        userMenu.classList.remove("open");
+    }
+    updateLoginNav();
+    window.location.href = "index.html";
+}
+
+document.addEventListener("click", function(e) {
+    var userMenu = document.getElementById("userMenu");
+    var loginNavBtn = document.getElementById("loginNavBtn");
+    if (userMenu && loginNavBtn && !userMenu.contains(e.target) && !loginNavBtn.contains(e.target)) {
+        userMenu.classList.remove("open");
+    }
+});
+
+function updateCopyrightYear() {
+    var yearElement = document.getElementById("copyrightYear");
+    if (!yearElement) return;
+    var currentYear = new Date().getFullYear();
+    yearElement.textContent = currentYear;
+}
+
 updateLoginNav();
+updateCopyrightYear();
 
 // Öppnar och stänger mobilmenyn (hamburger-menyn)
 function toggleMenu() {
@@ -41,9 +86,12 @@ function toggleMenu() {
 
 // Hanterar både filtrering av flygplanskort och autocomplete-listan
 function searchAircraft() {
-    var input = document.getElementById("searchBar").value.toLowerCase();
-    var cards = document.querySelectorAll(".aircraft-card");
+    var searchBar = document.getElementById("searchBar");
     var autocompleteList = document.getElementById("autocompleteList");
+    if (!searchBar || !autocompleteList) return;
+
+    var input = searchBar.value.toLowerCase();
+    var cards = document.querySelectorAll(".aircraft-card");
     var visibleCount = 0;
 
     // 1. Filtrera de befintliga flygplanskorten på sidan
@@ -121,16 +169,29 @@ document.addEventListener("click", function(e) {
 });
 
 // Öppnar modal-fönstret (popupen) med dynamisk info
-function openModal(name, price, specs, description) {
+function openModal(name, price, specs, description, imageUrl, seller, location) {
+    var modalOverlay = document.getElementById("modalOverlay");
+    if (!modalOverlay) return;
+
+    document.getElementById("modalImage").src = imageUrl;
+    document.getElementById("modalImage").alt = name;
     document.getElementById("modalName").textContent = name;
     document.getElementById("modalPrice").textContent = price;
+    document.getElementById("modalSeller").textContent = "Säljes av " + seller;
+    document.getElementById("modalLocation").textContent = location;
     document.getElementById("modalSpecs").textContent = specs;
     document.getElementById("modalDesc").textContent = description;
-    document.getElementById("modalOverlay").style.display = "flex";
+
+    modalOverlay.classList.add("open");
+    document.body.classList.add("modal-open");
 }
 
 function closeModal() {
-    document.getElementById("modalOverlay").style.display = "none";
+    var modalOverlay = document.getElementById("modalOverlay");
+    if (!modalOverlay) return;
+
+    modalOverlay.classList.remove("open");
+    document.body.classList.remove("modal-open");
 }
 
 document.addEventListener("keydown", function(event) {

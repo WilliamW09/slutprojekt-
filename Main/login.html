@@ -21,6 +21,9 @@
             <div class="nav-right">
                 <a href="login.html" class="login-btn" id="loginNavBtn">Log in</a>
                 <a href="contact.html" class="nav-button">Contact</a>
+                <div class="user-menu" id="userMenu">
+                    <button onclick="logout()" class="logout-btn">Logga ut</button>
+                </div>
             </div>
             <button class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span><span></span><span></span>
@@ -92,6 +95,7 @@
         <div class="footer-content">
             <h3>AeroTrade</h3>
             <p>Premium Swedish aircraft marketplace.</p>
+            <p class="copyright">&copy; <span id="copyrightYear"></span> AeroTrade.
         </div>
     </footer>
 
