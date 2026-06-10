@@ -86,9 +86,11 @@ function toggleMenu() {
     if (menu.classList.contains("open")) {
         menu.classList.remove("open");
         hamburger.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
     } else {
         menu.classList.add("open");
         hamburger.classList.add("open");
+        hamburger.setAttribute("aria-expanded", "true");
     }
 }
 
@@ -201,6 +203,7 @@ function openModal(name, price, specs, description, imageUrl, seller, location) 
 
     // Öppna modalen visuellt och lås bakgrundsscroll
     modalOverlay.classList.add("open");
+    modalOverlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
 }
 
@@ -210,6 +213,7 @@ function closeModal() {
     if (!modalOverlay) return;
 
     modalOverlay.classList.remove("open");
+    modalOverlay.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
 }
 

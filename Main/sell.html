@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="List your aircraft for sale on AeroTrade and reach buyers across Sweden with a clean, trusted marketplace.">
     <title>Sell Aircraft – AeroTrade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -22,10 +25,10 @@
                 <a href="login.html" class="login-btn" id="loginNavBtn">Log in</a>
                 <a href="contact.html" class="nav-button">Contact</a>
                 <div class="user-menu" id="userMenu">
-                    <button onclick="logout()" class="logout-btn">Logga ut</button>
+                    <button type="button" onclick="logout()" class="logout-btn">Logga ut</button>
                 </div>
             </div>
-            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <button class="hamburger" id="hamburger" type="button" aria-label="Toggle main menu" aria-controls="mobileMenu" aria-expanded="false" onclick="toggleMenu()">
                 <span></span><span></span><span></span>
             </button>
         </nav>
@@ -39,7 +42,8 @@
         </div>
     </header>
 
-    <section class="page-hero">
+    <main>
+        <section class="page-hero">
         <h1>Sell Your Aircraft</h1>
         <p>List your aircraft with Swedens leading aviation marketplace.</p>
     </section>
@@ -50,34 +54,35 @@
             <p class="form-sub">Fill in the details below and your aircraft will be listed for sale.</p>
 
             <div class="form-group">
-                <label>Aircraft Make & Model</label>
-                <input type="text" id="sellModel" placeholder="e.g. Cessna 150">
-                <p class="field-error" id="sellModelError"></p>
+                <label for="sellModel">Aircraft Make & Model</label>
+                <input type="text" id="sellModel" placeholder="e.g. Cessna 150" required>
+                <p class="field-error" id="sellModelError" aria-live="polite"></p>
             </div>
             <div class="form-group">
-                <label>Year of Manufacture</label>
-                <input type="number" id="sellYear" placeholder="e.g. 1960">
-                <p class="field-error" id="sellYearError"></p>
+                <label for="sellYear">Year of Manufacture</label>
+                <input type="number" id="sellYear" placeholder="e.g. 1960" required>
+                <p class="field-error" id="sellYearError" aria-live="polite"></p>
             </div>
             <div class="form-group">
-                <label>Asking Price (SEK)</label>
-                <input type="number" id="sellPrice" placeholder="e.g. 480,000kr">
-                <p class="field-error" id="sellPriceError"></p>
+                <label for="sellPrice">Asking Price (SEK)</label>
+                <input type="number" id="sellPrice" placeholder="e.g. 480000" required>
+                <p class="field-error" id="sellPriceError" aria-live="polite"></p>
             </div>
             <div class="form-group">
-                <label>Your Email</label>
-                <input type="text" id="sellEmail" placeholder="you@example.com">
-                <p class="field-error" id="sellEmailError"></p>
+                <label for="sellEmail">Your Email</label>
+                <input type="email" id="sellEmail" placeholder="you@example.com" required>
+                <p class="field-error" id="sellEmailError" aria-live="polite"></p>
             </div>
             <div class="form-group">
                 <label>Description</label>
                 <textarea id="sellDesc" placeholder="Describe the aircraft condition, features, history..."></textarea>
             </div>
 
-            <button class="primary-btn" style="width: 100%; padding: 14px;" onclick="submitListing()">Submit Listing</button>
-            <p class="success-msg" id="sellSuccess"></p>
+            <button type="button" class="primary-btn" style="width: 100%; padding: 14px;" onclick="submitListing()">Submit Listing</button>
+            <p class="success-msg" id="sellSuccess" role="status" aria-live="polite"></p>
         </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-content">
@@ -87,6 +92,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

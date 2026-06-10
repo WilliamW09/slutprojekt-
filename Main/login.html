@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Logga in eller skapa ett konto hos AeroTrade för att köpa och sälja flygplan enkelt och säkert.">
     <title>Log in – AeroTrade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -22,10 +25,10 @@
                 <a href="login.html" class="login-btn" id="loginNavBtn">Log in</a>
                 <a href="contact.html" class="nav-button">Contact</a>
                 <div class="user-menu" id="userMenu">
-                    <button onclick="logout()" class="logout-btn">Logga ut</button>
+                    <button type="button" onclick="logout()" class="logout-btn">Logga ut</button>
                 </div>
             </div>
-            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <button class="hamburger" id="hamburger" type="button" aria-label="Toggle main menu" aria-controls="mobileMenu" aria-expanded="false" onclick="toggleMenu()">
                 <span></span><span></span><span></span>
             </button>
         </nav>
@@ -39,7 +42,8 @@
         </div>
     </header>
 
-    <section class="form-section">
+    <main>
+        <section class="form-section">
         <div class="form-card login-card">
             <div class="login-tabs">
                 <button class="tab-btn active" id="tabRegister" onclick="switchTab('register')">Create Account</button>
@@ -51,23 +55,23 @@
                 <p class="form-sub">Join AeroTrade to buy and sell aircraft.</p>
 
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" id="regEmail" placeholder="you@example.com">
-                    <p class="field-error" id="regEmailError"></p>
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" placeholder="you@example.com" required>
+                    <p class="field-error" id="regEmailError" aria-live="polite"></p>
                 </div>
                 <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" id="regUsername" placeholder="Choose a username">
-                    <p class="field-error" id="regUsernameError"></p>
+                    <label for="regUsername">Username</label>
+                    <input type="text" id="regUsername" placeholder="Choose a username" required>
+                    <p class="field-error" id="regUsernameError" aria-live="polite"></p>
                 </div>
                 <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="regPassword" placeholder="Choose a password">
-                    <p class="field-error" id="regPasswordError"></p>
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" placeholder="Choose a password" required>
+                    <p class="field-error" id="regPasswordError" aria-live="polite"></p>
                 </div>
 
-                <button class="primary-btn" style="width: 100%; padding: 14px; margin-top: 8px;" onclick="register()">Create Account</button>
-                <p class="success-msg" id="regSuccess"></p>
+                <button type="button" class="primary-btn" style="width: 100%; padding: 14px; margin-top: 8px;" onclick="register()">Create Account</button>
+                <p class="success-msg" id="regSuccess" role="status" aria-live="polite"></p>
             </div>
 
             <div id="loginForm" style="display: none;">
@@ -75,21 +79,22 @@
                 <p class="form-sub">Log in to your AeroTrade account.</p>
 
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" id="loginEmail" placeholder="you@example.com">
-                    <p class="field-error" id="loginEmailError"></p>
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                    <p class="field-error" id="loginEmailError" aria-live="polite"></p>
                 </div>
                 <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="loginPassword" placeholder="Your password">
-                    <p class="field-error" id="loginPasswordError"></p>
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Your password" required>
+                    <p class="field-error" id="loginPasswordError" aria-live="polite"></p>
                 </div>
 
-                <button class="primary-btn" style="width: 100%; padding: 14px; margin-top: 8px;" onclick="login()">Log In</button>
-                <p class="success-msg" id="loginSuccess"></p>
+                <button type="button" class="primary-btn" style="width: 100%; padding: 14px; margin-top: 8px;" onclick="login()">Log In</button>
+                <p class="success-msg" id="loginSuccess" role="status" aria-live="polite"></p>
             </div>
         </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-content">
@@ -99,6 +104,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

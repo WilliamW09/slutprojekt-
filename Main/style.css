@@ -4,10 +4,28 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: #0f1923;
     color: white;
+    min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .navbar {
@@ -672,6 +690,14 @@ footer {
 .search-wrapper .search-bar {
     width: 100%;
     margin-bottom: 0;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #4da3ff;
+    outline-offset: 2px;
 }
 
 .autocomplete-list {
