@@ -2,7 +2,7 @@
 var aircraftData = [
     { name: "Beechcraft King Air 250", image: "../image/pexels-deetalks-26618086.jpg" },
     { name: "Piper J-3 Cub", image: "../image/pexels-planespotter-geneva-1877406873-32334134.jpg" },
-    { name: "Cessna 152", image: "../image/pexels-viliamphotography-32676348.jpg" }
+    { name: "Cessna 172", image: "../image/pexels-viliamphotography-32676348.jpg" }
 ];
 
 // Uppdaterar navigationsmenyn om det finns en inloggad användare sparad i webbläsaren
